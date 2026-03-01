@@ -11,11 +11,18 @@ from pathlib import Path
 
 import matplotlib
 
-try:
-    matplotlib.use("TkAgg")
-except Exception:
-    matplotlib.use("Agg")
 
+def _configure_matplotlib_backend():
+    """Use TkAgg when tkinter is available; otherwise fall back to Agg."""
+    try:
+        import tkinter  # noqa: F401
+
+        matplotlib.use("TkAgg")
+    except Exception:
+        matplotlib.use("Agg")
+
+
+_configure_matplotlib_backend()
 import matplotlib.pyplot as plt
 
 from csv_reader import read_csv
