@@ -11,7 +11,11 @@ from pathlib import Path
 
 import matplotlib
 
-matplotlib.use("TkAgg")
+try:
+    matplotlib.use("TkAgg")
+except Exception:
+    matplotlib.use("Agg")
+
 import matplotlib.pyplot as plt
 
 from csv_reader import read_csv
