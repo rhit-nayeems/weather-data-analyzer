@@ -82,7 +82,8 @@ def main():
         scope = st.radio("Scope", SCOPE_TYPES, index=0)
 
         station_options = functions.get_station_display_options()
-        station1 = st.selectbox("City", station_options, index=0)
+        city1_label = "City 1" if analysis_type == "Compare 2 curves" else "City"
+        station1 = st.selectbox(city1_label, station_options, index=0)
         station2 = None
 
         if analysis_type == "Compare 2 curves":

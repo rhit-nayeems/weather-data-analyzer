@@ -234,6 +234,12 @@ class WeatherAnalysisGUI(tk.Tk):
         is_anomaly = analysis == "Anomaly detection"
         is_similarity = analysis == "City similarity ranking"
 
+        if is_compare:
+            self.station1_label.config(text="City 1")
+            self.station2_label.config(text="City 2")
+        else:
+            self.station1_label.config(text="City")
+
         self._set_visible(self.station2_label, self.station2_combo, is_compare)
         self._set_visible(self.column_label, self.column_combo, not is_3d)
         self._set_visible(self.x_label, self.x_combo, is_3d)
